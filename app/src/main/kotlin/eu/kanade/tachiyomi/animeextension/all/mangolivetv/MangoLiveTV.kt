@@ -1,5 +1,7 @@
 package eu.kanade.tachiyomi.animeextension.all.mangolivetv
 
+import androidx.preference.PreferenceScreen
+import eu.kanade.tachiyomi.animesource.ConfigurableAnimeSource
 import eu.kanade.tachiyomi.animesource.model.AnimeFilter
 import eu.kanade.tachiyomi.animesource.model.AnimeFilterList
 import eu.kanade.tachiyomi.animesource.model.AnimesPage
@@ -11,7 +13,7 @@ import extensions.utils.Source
 import okhttp3.OkHttpClient
 import org.json.JSONObject
 
-class MangoLiveTV : Source() {
+class MangoLiveTV : Source(), ConfigurableAnimeSource {
 
     override val name = "Mango Live TV"
     override val baseUrl = "http://10.114.130.254"
@@ -93,10 +95,10 @@ class MangoLiveTV : Source() {
     }
 
     override fun getFilterList(): AnimeFilterList {
-        // We'll dynamically fetch categories if needed, but for now a static list or fetching once is better.
-        // For simplicity, we'll start with ALL and wait for user feedback if specific categories are needed.
         return AnimeFilterList(CategoryFilter())
     }
+
+    override fun setupPreferenceScreen(screen: PreferenceScreen) {}
 
     private class CategoryFilter : AnimeFilter.Select<String>(
         "Category",
