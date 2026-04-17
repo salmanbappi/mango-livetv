@@ -100,6 +100,6 @@ class MangoLiveTV : Source() {
 
     private class CategoryFilter : AnimeFilter.Select<String>(
         "Category",
-        arrayOf("ALL", "Top Picks", "Entertainment", "News", "Sports", "Movies", "Music", "Kids", "Infotainment", "Religious")
+        arrayOf("ALL", "Top Picks", "News", "Sports", "Prime Play", "Sportzfy", "Religion", "Movie", "Kids", "Ent", "Music", "Info", "International")
     )
 }
