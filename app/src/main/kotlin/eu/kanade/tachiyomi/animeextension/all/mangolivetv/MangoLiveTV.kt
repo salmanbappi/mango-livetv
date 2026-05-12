@@ -70,7 +70,7 @@ class MangoLiveTV : Source(), ConfigurableAnimeSource {
             }
         }
         
-        return AnimesPage(animeList, false)
+        return AnimesPage(animeList.distinctBy { it.url }, false)
     }
 
     override suspend fun getAnimeDetails(anime: SAnime): SAnime {
